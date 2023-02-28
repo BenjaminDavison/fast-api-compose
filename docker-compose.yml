@@ -1,5 +1,21 @@
 version: '3.7'
 services:
+  app:
+    build: .
+    container_name: app
+    volumes:
+    - ./:/src
+    stdin_open: true
+    tty: true
+    entrypoint: /bin/bash
+    environment:
+      - PYTHONPATH=./src
+    depends_on:
+      - dynamodb
+      - minio
+      - db
+      - redis
+
   dynamodb-local:
     image: amazon/dynamodb-local
     container_name: dynamodb
