@@ -11,7 +11,7 @@ services:
     environment:
       - PYTHONPATH=./src
     depends_on:
-      - dynamodb
+      - dynamodb-local
       - minio
       - db
       - redis
