@@ -7,7 +7,6 @@ on:
 
 jobs:  
   call-workflow-passing-data:
-    environment: dev
     permissions:
       contents: read
       pull-requests: write
