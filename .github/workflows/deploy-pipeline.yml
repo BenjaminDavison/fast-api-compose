@@ -7,7 +7,7 @@ on:
 jobs:
   deploy_dev:
     name: Deploy to Dev
-    uses: .github/workflows/reusable-deploy.yml
+    uses: .github/workflows/reusable-deploy.yml@main
     with:
       environment: dev
     secrets:
@@ -16,7 +16,7 @@ jobs:
   deploy_prod:
     name: Deploy to Prod
     needs: deploy_dev
-    uses: .github/workflows/reusable-deploy.yml
+    uses: .github/workflows/reusable-deploy.yml@main
     with:
       environment: prod
     secrets:
