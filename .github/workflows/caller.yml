@@ -3,11 +3,10 @@ name: Call a reusable workflow
 on:
   push:
     branches:
-      - main
+      - dev/*
 
 jobs:
-  # call-workflow:
-  #   uses: octo-org/example-repo/.github/workflows/workflow-A.yml@v1
+  environment: dev
 
   call-workflow-passing-data:
     permissions:
@@ -18,3 +17,6 @@ jobs:
       config-path: .github/labeler.yml
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
+
+  call-test:      
+    uses: ./.github/workflows/test.yml
