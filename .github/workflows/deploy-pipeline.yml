@@ -18,10 +18,13 @@ on:
       environment:
         type: environment  
 
+# ${{ inputs.print_tags }} 
 jobs:
   deploy_dev:
     name: Deploy to Dev
     uses: ./.github/workflows/reusable-deploy.yml
+    with:
+      environment: ${{ inputs.environment }}
     secrets:
       PASSWORD: ${{ secrets.PASSWORD }}
       
@@ -29,6 +32,8 @@ jobs:
     name: Deploy to Prod
     needs: deploy_dev
     uses: ./.github/workflows/reusable-deploy.yml
+    with:
+      environment: ${{ inputs.environment }}    
     secrets:
       PASSWORD: ${{ secrets.PASSWORD }}
 
