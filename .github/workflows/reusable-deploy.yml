@@ -1,12 +1,35 @@
 name: Deploy Template
 
+# on:
+#   workflow_dispatch:
+#     inputs:
+#       name:
+#         type: choice
+#         description: Who to greet
+#         options: 
+#         - monalisa
+#         - cschleiden
+#       message:
+#         required: true
+#       use-emoji:
+#         type: boolean
+#         description: Include  emojis
+#       environment:
+#         type: environment
+
 on:
   workflow_call:
     inputs:
       environment:
-        type: string
+        type: environment
         description: environment to deploy to
         required: true
+      target:
+        type: choice
+        description: Deployment Target
+        options:
+          - foo
+          - bar
     secrets:
       PASSWORD:
         required: true
